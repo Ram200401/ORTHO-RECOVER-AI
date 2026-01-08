@@ -1,0 +1,15 @@
+# backend/.htaccess
+
+# Disable directory browsing
+Options -Indexes
+
+# Allow CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# Rule to block direct access to uploads but allow via API (optional implementation)
+<FilesMatch "\.(php)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
